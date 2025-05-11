@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 30px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 40px;
+}
+th, td {
+    border: 1px solid #aaa;
+    padding: 10px;
+    text-align: left;
+}
+form {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+input, button, select {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+}
+.form-container {
+    max-width: 400px;
+}
