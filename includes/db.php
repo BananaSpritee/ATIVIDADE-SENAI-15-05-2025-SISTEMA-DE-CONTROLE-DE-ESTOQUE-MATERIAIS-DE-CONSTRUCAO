@@ -28,22 +28,27 @@ $conn->query("CREATE TABLE IF NOT EXISTS produto (
             );
             ");
 
-$stmt = $conn->prepare("INSERT INTO categoria (nome) VALUES (:nome)");
+// Verifica se já existem categorias cadastradas
+$count = $conn->query("SELECT COUNT(*) FROM categoria")->fetchColumn();
 
-$categorias=[
-'Elétrica',
-'Hidráulica',
-'Ferramentas',
-'Tintas',
-'Materiais Básicos',
-'Acabamentos',
-'Pisos e Revestimentos',
-'Madeiras'
-];
+if ($count == 0) {
+    $stmt = $conn->prepare("INSERT INTO categoria (nome) VALUES (:nome)");
 
-foreach ($categorias as $categoria) {
-    $stmt->bindParam(':nome', $categoria);
-    $stmt->execute();
+    $categorias = [
+        'Elétrica',
+        'Hidráulica',
+        'Ferramentas',
+        'Tintas',
+        'Materiais Básicos',
+        'Acabamentos',
+        'Pisos e Revestimentos',
+        'Madeiras'
+    ];
+
+    foreach ($categorias as $categoria) {
+        $stmt->bindParam(':nome', $categoria);
+        $stmt->execute();
+    }
 }
 
 ?>
