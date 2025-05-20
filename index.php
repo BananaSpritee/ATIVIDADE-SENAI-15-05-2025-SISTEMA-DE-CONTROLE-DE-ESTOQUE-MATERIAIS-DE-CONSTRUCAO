@@ -90,7 +90,7 @@ $categorias = $stmtCat->fetchAll(PDO::FETCH_ASSOC);
             <input type="text" name="unidade" placeholder="Unidade (ex: kg, m², un)" required>
             <input type="number" name="valor" placeholder="Valor" step="0.01" min="0" required>
 
-            <select name="categoria_id" required>
+            <select class="select_category" name="categoria_id" required>
 
                 <option value="">Selecione a categoria</option>
 
@@ -170,7 +170,7 @@ $categorias = $stmtCat->fetchAll(PDO::FETCH_ASSOC);
                             <input type="text" name="unidade" value="<?= htmlspecialchars($produto['unidade']) ?>" required>
                             <input type="number" name="valor" value="<?= $produto['valor'] ?>" step="0.01" min="0" required>
 
-                            <select name="categoria_id" required>
+                            <select class="update_category" name="categoria_id" required>
 
                                 <?php foreach ($categorias as $categoria): ?>
 
